@@ -2,6 +2,8 @@ syntax on
 
 set nu
 
+set t_Co=256
+
 set updatetime=300
 
 set noerrorbells
@@ -12,7 +14,6 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
-set indentexpr=
 set autoindent
 set smartindent
 
@@ -31,8 +32,9 @@ set nobackup
 set undodir=~/.config/nvim/undodir
 set undofile
 
-set cursorline
 set background=dark
+set cursorline
+hi CursorLine cterm=NONE ctermbg=blue ctermfg=white
 
 filetype plugin indent on
 
@@ -49,12 +51,15 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
+Plug 'alvan/vim-closetag'
 
 call plug#end()
 
 let mapleader=' '
 
-map <leader>w :w!<cr>
+map <silent> <leader>w :w!<cr>
+map <leader>q :q<cr>
+
 map <silent> <leader>bd :bd<cr>
 map <silent> <leader>ba :%bd<cr>
 
@@ -69,9 +74,8 @@ map <C-l> <C-w>l
 map <silent> <M-Left> :bprev<cr>
 map <silent> <M-Right> :bnext<cr>
 
-
 nnoremap <F5> :silent update<Bar>silent !firefox %:p &<CR>
 
 let g:rainbow_active = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'murmur'
+let g:airline_theme = 'bubblegum'
